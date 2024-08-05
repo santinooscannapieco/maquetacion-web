@@ -1,0 +1,229 @@
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo {
+    text-transform: uppercase;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+}
+
+.nav-list a {
+    font-size: 20px;
+    border-bottom: 2px solid transparent;
+    transition: all .5s ease;
+}
+
+.nav-list a:hover {
+    border-bottom: 2px solid white;
+}
+
+#menu-icon {
+    display: none; /* pongo none para que solo se vea cuando se achica la pantalla */
+}
+
+#menu-icon {
+    font-size: 35px;
+    z-index: 101; /* para que este sobre el header */
+    cursor: pointer; /* para que aparezca la manito */
+}
+
+#menu-toggle {
+    display: none; /* nunca quiero que se vea el checkbox */
+}
+
+.menu-icon-action {
+    display: none; /* para que no se le pueda hacer click */
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, #31494e 0%, #385e70 25%, #131313 75%);
+    position: relative; /* para que sea relativo al contenedor */
+    display: grid; /* para que el hero se pueda dividir en 2 columnas */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+section{
+    padding: 0 8%;
+}
+
+.hero-text h5 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    line-height: 1;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+}
+
+.hero-text a {
+    display: inline-block;
+    background-color: #31494e;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text .hero-text-btn {
+    display: flex;
+    text-align: center;
+    gap: 30px;
+}
+
+.hero-img img {
+    width: 350px;
+    border-radius: 100px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 5s linear;
+}
+
+.hero-img img:hover {
+    scale: 1.2;
+    opacity: 0.6;
+}
+
+.hero-icon {
+    position: absolute;
+    background-color: #31494e;
+    border-radius: 100%;
+    padding: 10px 10px 4px 10px;
+    font-size: 25px;
+    right: 30px;
+    bottom: 30px;
+    transition: all .5 ease;
+}
+
+.hero-icon:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Aca voy a hacer las mediaqueries para responsive */
+@media (max-width:992px) {
+    section {
+        padding: 0 3%;
+    }
+    .hero-img {
+        text-align: center;
+    }
+    .hero-img img {
+        width: 70%;
+    }
+    .hero-text h1, h4, h5 {
+        font-size: 100%;
+    }
+    .hero-text .hero-text-btn {
+        font-size: 70%;
+    }
+    .hero-text a {
+        font-size: 90%;
+    }
+    .hero-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 100%;
+    }
+    .menu-icon-action {
+        display: block;
+    }
+    #menu-icon {
+        display: block;
+    }
+    .hero-text {
+        text-align: center;
+        padding-top: 70px;
+    }
+    .hero-text .hero-text-btn {
+        justify-content: center;
+    }
+    .hero-img img {
+        margin: 0;
+    }
+    .hero {
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+    .hero-img img {
+        width: 50%;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 50px;
+        right: -100%;
+        width: 150px;
+        height: auto;
+        background-color: #0000008e;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 7px;
+        transition: all 1s ease;
+    }
+    .nav-list a {
+        font-size: 70%;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul {
+        right: 0;
+    }
+}
